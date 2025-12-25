@@ -1,6 +1,6 @@
 """
 Lowest Common Ancestor in Binary Search Tree
-def lowestCommonAncestor(root: BinaryTreeNode, p: BinaryTreeNode, q: BinaryTreeNode) -> BinaryTreeNode:
+def lowest_common_ancestor(root: BinaryTreeNode, p: int, q: int) -> BinaryTreeNode:
 
 Given a binary search tree (BST) where all node values are unique,
 and two nodes from the tree p and q,
@@ -28,17 +28,31 @@ from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_funct
 
 EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([5,3,8,1,4,7,9,None,2]), "p": 3, "q": 8}, "result": 5},
-    {"inputs": {"root": BinaryTreeNode.from_list([5,3,8,1,4,7,9,None,2]), "p": 3, "q": 4}, "result": 5},
+    {"inputs": {"root": BinaryTreeNode.from_list([5,3,8,1,4,7,9,None,2]), "p": 3, "q": 4}, "result": 3},
 ]
 
 COMPLEXITY = """
+COMPLEXITY
+Time: O(h)
+where h is tree height
+
+balanced BST → O(log n)
+skewed BST → O(n)
+Space: O(h) recursion stack
 """
 
-def lowestCommonAncestor(root: BinaryTreeNode, p: BinaryTreeNode, q: BinaryTreeNode) -> BinaryTreeNode:
-    pass
+def lowest_common_ancestor(root: BinaryTreeNode, p: int, q: int) -> BinaryTreeNode:
+    p, q = (q, p) if p > q else (p, q)
+
+    if p <= root.val <= q:
+        return root
+    elif root.val > q:
+        return lowest_common_ancestor(root.left, p, q)
+    else:  # root.val < p:
+        return lowest_common_ancestor(root.right, p, q)
 
 
-function = lowestCommonAncestor
+function = lowest_common_ancestor
 
 
 def main():
