@@ -23,7 +23,7 @@ Constraints:
 
 """
 
-from neet_code.utils.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
 
 EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([1,None,2,3,4,5])}, "result": 3},

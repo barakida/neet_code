@@ -21,7 +21,7 @@ Constraints:
 -100 <= Node.val <= 100
 """
 
-from neet_code.utils.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
 
 
 EXAMPLES = [
