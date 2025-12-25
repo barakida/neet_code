@@ -23,9 +23,10 @@ class BinaryTreeNode:
         queue.put(head)
         for idx in range(1, len(values), 2):
             node = queue.get()
-            node.left = BinaryTreeNode(values[idx])
-            queue.put(node.left)
-            if idx + 1 < len(values):
+            if values[idx] is not None:
+                node.left = BinaryTreeNode(values[idx])
+                queue.put(node.left)
+            if idx + 1 < len(values) and values[idx + 1] is not None:
                 node.right = BinaryTreeNode(values[idx + 1])
                 queue.put(node.right)
         queue.empty()

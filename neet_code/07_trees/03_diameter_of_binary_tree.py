@@ -30,9 +30,30 @@ EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([1,2,3])}, "result": 2},
 ]
 
+COMPLEXITY = """
+Complexity
+Time: O(n) (each node visited once)
+Space: O(h) recursion stack (height of tree)
+"""
+
 
 def get_diameter(root: BinaryTreeNode) -> int:
-    pass
+
+    def get_diameter_and_depth(root_: BinaryTreeNode) -> tuple[int, int]:
+        if root_ is None:
+            return 0, 0
+
+        diameter_left, depth_left = get_diameter_and_depth(root_.left)
+        diameter_right, depth_right = get_diameter_and_depth(root_.right)
+
+        diameter_ = max(diameter_left, diameter_right, depth_left + depth_right)
+        depth_ = max(depth_left, depth_right) + 1
+
+        return diameter_, depth_
+
+    diameter, depth = get_diameter_and_depth(root)
+
+    return diameter
 
 
 function = get_diameter
@@ -40,6 +61,7 @@ function = get_diameter
 
 def main():
     [test_binary_tree_function(function=function, example=example) for example in EXAMPLES]
+    print(COMPLEXITY)
 
 
 if __name__ == '__main__':
