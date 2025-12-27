@@ -28,11 +28,31 @@ EXAMPLES = [
 ]
 
 COMPLEXITY = """
-
+Complexity
+Time: O(n) — each node visited once
+Space: O(h) recursion stack
+    Worst case (skewed tree): O(n)
+    Balanced tree: O(log n)
+Output list: O(n) in worst case
 """
 
 def right_side_view(root: Optional[BinaryTreeNode]) -> List[int]:
-    pass
+    results = []
+
+    def _right_side_view(root_: Optional[BinaryTreeNode], level: int) -> None:
+
+        if root_ is None:
+            return
+
+        if level > len(results):
+            results.append(root_.val)
+
+        _right_side_view(root_=root_.right, level=level+1)
+        _right_side_view(root_=root_.left, level=level+1)
+
+    _right_side_view(root, 1)
+
+    return results
 
 
 function = right_side_view
@@ -45,3 +65,13 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+"""
+important to remember
+
+from collections import deque
+queue = deque([root])
+node = queue.popleft()
+result.append(node.val)
+"""
+
