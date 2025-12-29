@@ -18,6 +18,7 @@ Constraints:
 1 <= nums.length <= 10
 -10 <= nums[i] <= 10
 """
+from collections import deque
 from typing import List
 
 from neet_code.utils.display_utils_utils import print_results
@@ -28,12 +29,24 @@ EXAMPLES = [
 ]
 
 COMPLEXITY = """
+Complexity
+Let n = len(nums).
+Number of subsets: 2^n
 
+Time: O(n * 2^n)
+(each subset copy r + [x] costs up to O(n) across the process)
+
+Space: O(2^n) for storing all subsets (and their contents)
+
+This is optimal for a problem that must output 2^n subsets.
 """
 
 
-def subsets(nums: List[int]) -> List[List[int]]:
-    pass
+def subsets(nums):
+    res = [[]]
+    for x in nums:
+        res += [r + [x] for r in res]
+    return res
 
 
 function = subsets
