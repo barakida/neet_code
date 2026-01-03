@@ -23,7 +23,7 @@ The number of nodes in the tree is in the range [0, 1000].
 -1000 <= Node.val <= 1000
 """
 
-from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree_node import BinaryTreeNode, test_binary_tree_function
 
 EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([1,2,3,None,None,4])}, "result": True},

@@ -24,7 +24,7 @@ Constraints:
 
 from typing import Optional, List
 
-from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree_node import BinaryTreeNode, test_binary_tree_function
 
 EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([2,1,3]), "k": 1}, "result": 1},

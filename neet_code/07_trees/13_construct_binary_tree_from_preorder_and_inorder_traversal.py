@@ -24,7 +24,7 @@ inorder.length == preorder.length
 """
 from typing import Optional, List
 
-from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree_node import BinaryTreeNode, test_binary_tree_function
 
 EXAMPLES = [
     {"inputs": {"preorder": [1,2,3,4], "inorder": [2,1,3,4]}, "result": BinaryTreeNode.from_list([1,2,3,None,None,None,4])},

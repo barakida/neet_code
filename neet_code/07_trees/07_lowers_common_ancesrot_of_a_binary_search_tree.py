@@ -24,7 +24,7 @@ p != q
 p and q will both exist in the BST.
 """
 
-from neet_code.classes.binary_tree import BinaryTreeNode, test_binary_tree_function
+from neet_code.classes.binary_tree_node import BinaryTreeNode, test_binary_tree_function
 
 EXAMPLES = [
     {"inputs": {"root": BinaryTreeNode.from_list([5,3,8,1,4,7,9,None,2]), "p": 3, "q": 8}, "result": 5},
