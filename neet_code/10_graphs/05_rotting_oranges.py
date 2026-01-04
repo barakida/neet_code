@@ -24,10 +24,6 @@ Constraints:
 1 <= grid.length, grid[i].length <= 10
 """
 
-from typing import List, Optional
-
-from neet_code.classes.undirected_graph_node import UndirectedGraphNode
-
 EXAMPLES = [
     {"input": {"grid": [[1,1,0],[0,1,1],[0,1,2]]}, "output": 4},
     {"input": {"grid": [[1,0,1],[0,2,0],[1,0,1]]}, "output": -1},
@@ -42,6 +38,8 @@ Extra Memory	    O(1) (in-place)
 """
 
 from collections import deque
+from typing import List
+
 
 def oranges_rotting(grid: List[List[int]]) -> int:
     queue = deque()
